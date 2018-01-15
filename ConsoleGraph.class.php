@@ -1,4 +1,10 @@
 <?php
+	/*
+		ConsoleGraph PHP Class
+		Copyright Ivan_Alone, 2018
+		GNU General Public License 3
+	*/
+	
 	class ConsoleGraph {
 		private $useStarsAsWinBuilders = false;
 		
@@ -64,7 +70,7 @@
 		
 		public function graphColor($bg, $txt) {
 			if (PHP_OS == 'WINNT') {
-				self::exeW('color '.dechex(max(0, min(15, hexdec($bg)))).dechex(max(0, min(15, hexdec($txt)))));
+				self::exeW('color '.dechex(max(0, min(15, $bg))).dechex(max(0, min(15, $txt))));
 				return true;
 			} else {
 				return false;
