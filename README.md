@@ -51,7 +51,7 @@
 
 #### Описание классов
 
-##### ConsoleGraph
+#### ConsoleGraph
 
 Главный и единственный класс, реализующий "графическую систему" библиотеки. Является публичным нестатическим классом, то есть для использования необходимо создать его инстанцию.
 
@@ -67,7 +67,7 @@
 
 #### Описание функций
 
-##### ConsoleGraph->graphTitle($title)
+#### ConsoleGraph->graphTitle($title)
 
 Устанавливает имя окна терминала.
 
@@ -75,7 +75,7 @@
 
 * String $title
 
-##### ConsoleGraph->graphColor($bg, $txt)
+#### ConsoleGraph->graphColor($bg, $txt)
 
 Устанавливает цвета фона и текста в терминале (работает только на Windows!)
 
@@ -84,21 +84,21 @@
 * int $bg - цвет фона (0x0 - 0xF)
 * int $txt - цвет текса (0x0 - 0xF)
 
-##### ConsoleGraph->graphColorReset()
+#### ConsoleGraph->graphColorReset()
 
 Сбрасывает цвета фона и текста в терминале (работает только на Windows!)
 
 
-##### ConsoleGraph->graphClear()
+#### ConsoleGraph->graphClear()
 
 Очистка экрана терминала 
 
-##### ConsoleGraph->clear()
+#### ConsoleGraph->clear()
 
 Очистка экрана терминала (устаревший (deprecated) метод)
 
 
-##### ConsoleGraph->graphSetSlide($slide) 
+#### ConsoleGraph->graphSetSlide($slide) 
 
 Устанавливает сдвиг текста от начала отсчёта, полезно при кастомном позиционировании текста на экране
 
@@ -107,7 +107,7 @@
 * int $slide - размер сдвига в символах
 
 
-##### ConsoleGraph->graphReadLn($text = null)
+#### ConsoleGraph->graphReadLn($text = null)
 
 Читает строку с клавиатуры, возвращая её значение. Параметром можно указать текст, указываемый перед индикатором ввода '> '.
 
@@ -119,7 +119,7 @@
 
 * string 
 
-##### ConsoleGraph->graphReadPassword($text = null)
+#### ConsoleGraph->graphReadPassword($text = null)
 
 Читает строку с клавиатуры, возвращая её значение, а затем скрывая введённый текст спец. символами, как для пароля. Параметром можно указать текст, указываемый перед индикатором ввода '> '.
 
@@ -132,21 +132,67 @@
 * string 
 
 
-##### ConsoleGraph->graphStartingLine()
-##### ConsoleGraph->graphEmptyLine()
-##### ConsoleGraph->graphFilledLine()
-##### ConsoleGraph->graphDottedLine() 
-##### ConsoleGraph->graphEndingLine()
+#### ConsoleGraph->graphStartingLine()
 
-##### ConsoleGraph->graphWriteToLine($text)
-##### ConsoleGraph->graphWriteToCenterLine($text)
+Рисует начальную линию окна, с углами начала и т.п.
 
-##### ConsoleGraph->graphProgressBarCreate()
-##### ConsoleGraph->graphProgressBarUpdate($current, $count) 
-##### ConsoleGraph->graphProgressBarClose()
+#### ConsoleGraph->graphEmptyLine()
 
-##### ConsoleGraph->graphPause()
-##### ConsoleGraph->graphFinish()
+Рисует пустую линию окна с боковыми "огородками".
+
+#### ConsoleGraph->graphFilledLine()
+
+Рисует заполненную линию окна, подходит для отделения разделов GUI друг от друга
+
+#### ConsoleGraph->graphDottedLine() 
+
+Рисует заполненную тире линию окна, подходит для отделения подразделов GUI друг от друга
+
+#### ConsoleGraph->graphEndingLine()
+
+Рисует финальную линию окна, с углами конца и т.п.
 
 
+#### ConsoleGraph->graphWriteToLine($text)
+
+Рисует пустую линию окна с боковыми "огородками", а затем поверх неё печатает указанный в параметре текст.
+
+Значения переменных:
+
+* string $text - текст, который надо вывести на экран
+
+#### ConsoleGraph->graphWriteToCenterLine($text)
+
+Рисует пустую линию окна с боковыми "огородками", а затем поверх неё печатает указанный в параметре текст, центруя его посередине экрана.
+
+Значения переменных:
+
+* string $text - текст, который надо вывести на экран по центру
+
+
+#### ConsoleGraph->graphProgressBarCreate()
+
+Открывает сессию обновления прогресс-бара. Внимание! При открытой сессии прогресс-бара другие попытки ввода-вывода в консоль средстами библиотеки неработоспособны, в дальнейшем код сессии будет изменён на блокирующий, дабы сессия действительно не позволяла вывести в консоль что-либо иное.
+
+#### ConsoleGraph->graphProgressBarUpdate($current, $count)
+
+Обновляет прогресс-бар. 
+
+Значения переменных:
+
+* int $current - текущая позиция прогресса
+* int $count - максимальная длина прогресс-бара, нужна для рассчёта соотношения размера "летны" с текущим прогрессом, а также для вывода на экран
+
+#### ConsoleGraph->graphProgressBarClose()
+
+Закрывает сессию обновления прогресс-бара
+
+
+#### ConsoleGraph->graphPause()
+
+Вызывает системную приостановку выполнения программы. Полезно для отладки, или если нужно попросить пользователя нажать Enter
+
+#### ConsoleGraph->graphFinish()
+
+Завершение работы графической библиотеки. При вызове вызывается пауза, а после нажатия Enter (на Windows - любой клавиши) производится завершение программы. 
 
