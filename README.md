@@ -129,7 +129,8 @@
 
 Тип данных:
 
-* string 
+* String
+
 
 
 #### ConsoleGraph->graphStartingLine()
@@ -153,13 +154,14 @@
 Рисует финальную линию окна, с углами конца и т.п.
 
 
+
 #### ConsoleGraph->graphWriteToLine($text)
 
 Рисует пустую линию окна с боковыми "огородками", а затем поверх неё печатает указанный в параметре текст.
 
 Значения переменных:
 
-* string $text - текст, который надо вывести на экран
+* string $text - текст, который надо вывести на экран.
 
 #### ConsoleGraph->graphWriteToCenterLine($text)
 
@@ -167,7 +169,8 @@
 
 Значения переменных:
 
-* string $text - текст, который надо вывести на экран по центру
+* string $text - текст, который надо вывести на экран по центру.
+
 
 
 #### ConsoleGraph->graphProgressBarCreate()
@@ -186,6 +189,7 @@
 #### ConsoleGraph->graphProgressBarClose()
 
 Закрывает сессию обновления прогресс-бара
+
 
 
 #### ConsoleGraph->graphPause()
