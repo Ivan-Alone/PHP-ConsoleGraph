@@ -324,6 +324,10 @@
         
         public function graphFinish() {
             self::graphPause();
+            self::graphExit();
+        }
+        
+        public function graphExit() {
             exit;
         }
         
